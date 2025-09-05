@@ -1,0 +1,291 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(20, 20, 20, 0.9);
+  color: #fff;
+  overflow-x: hidden;
+}
+.celebrate-header-wrapper {
+  position: relative;
+  margin-bottom: 3rem;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff69b4aa;
+}
+
+.celebrate-header {
+  font-size: 2.5rem;
+  color: #ff69b4;
+  font-weight: bold;
+  margin: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.balloons-container {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: riseSlow 7s linear infinite;
+  pointer-events: none;
+  background: radial-gradient(circle, #f06, #f9a);
+}
+
+@keyframes riseSlow {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-180px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  background: #ff69b4;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px #ff69b4);
+  animation: sparkleAnim 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkleAnim {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.6;
+  }
+}
+
+.carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  cursor: grab;
+  user-select: none;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  max-width: 90vw; /* Or whatever fits your layout */
+}
+
+.carousel-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  user-select: none;
+  pointer-events: none;
+}
+.typing-effect {
+  font-family: 'Courier New', monospace;
+  white-space: pre-wrap;
+  font-size: 1.4rem;
+  border-right: 2px solid #ff69b4;
+  animation: blink-caret 0.8s step-end infinite;
+  min-height: 80px; /* reserve space so it doesn’t jump */
+  white-space: pre-wrap;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ff69b4; }
+}
+
+
+
+.app {
+  width: 100vw;
+  position: relative;
+  height: 100vh;  /* <-- make sure height is EXACTLY 100vh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;  /* include padding in height */
+}
+
+
+.centered {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  padding: 0;
+}
+
+.heart-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: pink;
+  transform: rotate(45deg);
+  top: 100%;
+  animation-name: floatHeart;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+@keyframes floatHeart {
+  0% { top: 100%; transform: scale(1); }
+  100% { top: -10%; transform: scale(0.5); opacity: 0; }
+}
+
+.gift-loader {
+  width: 100px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.vibrate {
+  animation: vibrate 0.2s infinite;
+}
+
+@keyframes vibrate {
+  0% { transform: translate(0); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 2px); }
+  100% { transform: translate(-2px, -2px); }
+}
+
+.emojiRain span {
+  position: absolute;
+  animation: fall 4s linear infinite;
+  left: calc(10% + 80% * random());
+  font-size: 2rem;
+}
+
+@keyframes fall {
+  0% { top: -10%; }
+  100% { top: 110%; opacity: 0; }
+}
+
+.highlight {
+  color: #ff69b4;
+}
+
+.cake-img {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: #ff69b4;
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #ff2f92;
+}
+
+.balloons {
+  position: relative;
+  height: 300px;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 0;
+  left: calc(10% + 80% * random());
+  width: 30px;
+  height: 40px;
+  background: radial-gradient(circle, #f06, #f9a);
+  border-radius: 50%;
+  animation: rise 4s linear forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-400px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.envelope {
+  width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.envelope:hover {
+  transform: scale(1.1);
+}
+
+.message-box {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ffd;
+}
+
+.carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin: 1rem auto;
+}
+
+.carousel-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.final-envelope {
+  width: 100px;
+  height: 60px;
+  background: pink;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+.big-message {
+  background: #222;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
